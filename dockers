@@ -1,0 +1,38 @@
+https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker
+
+# upgrade os
+sudo apt-get update && sudo apt-get upgrade
+
+# Download the right script and install Docker on the Raspberry Pi environment. 
+Push this below installation script.
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+# Run the script with the help of the below command:
+sudo sh get-docker.sh
+
+# Append a non-root user on the Docker group
+As per the Raspberry Pi process, whichever user has the administrative rights whom we can consider as root user can execute containers. For example, if a case user is not logged in to the admin root, then they should use the sudo prefix.
+We can also add the non-root users to the Docker group, which will enable running the executed docker commands.
+Here is the syntax for adding users to the Docker group:
+
+sudo usermod -aG docker [user_name]
+
+# We can consider it the default user for adding the Pi user in Raspbian.
+Refer to the below command:
+sudo usermod -aG docker Pi
+usermod -aG docker pi
+usermod -aG docker root
+
+# We need to log out of the system to check the output process.
+For checking the Updated Docker Version and info details on your Raspberry Pi, refer to the below command.
+docker version
+
+# Execute/run the sample Hello World Container. Here we need to configure and set up this below command.
+
+docker run hello-world
+
+# After running the above command, it will contact the Docker daemon and pull the “hello-world” image. 
+The output will show the “installation appears to be working correctly” message.
+
+# install screen
+apt-get install screen
